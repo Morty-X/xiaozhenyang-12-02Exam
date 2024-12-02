@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    2. 【验证字符串是否为有效的括号序列】编写一个函数，接收一个只包含字符
+    '(', ')', '{', '}', '[' 和 ']' 的字符串，
+    判断字符串是否是一个有效的括号序列。
+    <script>
+
+        function isValid(braces) {
+            const stack = []
+            try {
+                let temp = braces.split("")
+                for (let i = 0; i < temp.length; i++) {
+                    let item = temp[i]
+                    if (item === "(" || item === "{" || item === "[") {
+                        stack.push(item)
+                    } else {
+                        if (item === ")" && stack.pop() !== "(") throw ""
+                        if (item === "]" && stack.pop() !== "[") throw ""
+                        if (item === "}" && stack.pop() !== "{") throw ""
+                    }
+                }
+            } catch {
+                return false
+            }
+            return stack.length === 0
+        }
+        console.log(isValid("()"));
+        console.log(isValid("()[]{}"));
+        console.log(isValid("(]"));
+        console.log(isValid("([)]"));
+        console.log(isValid("{[]}"));
+
+        isValid("()");        // 输出: true
+        isValid("()[]{}");    // 输出: true
+        isValid("(]");        // 输出: false
+        isValid("([)]");      // 输出: false
+        isValid("{[]}");      // 输出: true
+
+
+    </script>
+</body>
+
+</html>

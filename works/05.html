@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    5. 【数组元素的频次统计】编写⼀个函数，接收⼀个数组作为输⼊，并返回⼀个对象，该对象的
+    键是数组中的元素，值是该元素在数组中出现的频次。
+    <script>
+        countFrequencies([1, 1, 1, 2, 3, 4, 3, 2]); // [1,2,3]
+        function countFrequencies(arr) {
+            let obj = {}
+            let newArr = []
+            for (let i = 0; i < arr.length; i++) {
+                if (newArr.indexOf(arr[i]) === -1) {
+                    newArr.push(arr[i])
+                }
+            }
+
+            for (let k = 0; k < newArr.length; k++) {
+                let item = newArr[k]
+                let count = 0
+                for (let n = 0; n < arr.length; n++) {
+                    if (newArr[k] === arr[n]) {
+                        count++
+                    }
+                }
+                obj[item] = count
+            }
+            return obj
+        }
+        console.log(countFrequencies([1, 1, 1, 2, 3, 4, 3, 2]));
+
+    </script>
+</body>
+
+</html>

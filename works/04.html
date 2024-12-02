@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    4. 【数组中的第二大元素】编写一个函数，接收一个数组作为输入，
+    并返回该数组中的第二大元素。如果不存在第二大元素，则返回null或undefined。
+    <script>
+        findSecondLargest([3, 5, 1, 2, 4]); // 输出: 4
+        findSecondLargest([1, 2, 2, 2]); // 输出: null 或 undefined
+        // 首先排序，22对比，若有重复则返回 null 或 undefined，否则
+        // 找到第二大的元素
+        function findSecondLargest(arr) {
+            let newArr = arr.sort(function (a, b) {
+                return a - b
+            })
+            let flag = true //默认是不重复
+            for (let i = 0; i < newArr.length; i++) {
+                if (newArr[i] === newArr[i + 1]) {
+                    flag = false
+                    return null
+                }
+            }
+            if (flag) {
+                return newArr[newArr.length - 2]
+            }
+        }
+        console.log(findSecondLargest([3, 5, 1, 2, 4]));
+        console.log(findSecondLargest([1, 2, 2, 2]));
+
+    </script>
+</body>
+
+</html>

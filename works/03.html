@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    3. 【字符串中的单词翻转】编写一个函数，接收一个包含多个单词的字符串
+    （单词之间由空格分隔），并返回单词顺序翻转后的字符串，但单词内部的字符顺序不变。
+    <script>
+        // reverseWords("Let's take LeetCode contest");
+        // 输出: "contest LeetCode take Let's"
+        function reverseWords(str) {
+            let arr = str.split(' ').reverse()
+            return arr.join(' ')
+        }
+        console.log(reverseWords("Let's take LeetCode contest"));
+
+    </script>
+</body>
+
+</html>
